@@ -1,0 +1,1 @@
+from models.vendas import Venda

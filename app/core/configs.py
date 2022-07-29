@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     DB_USER_NAME: str = getenv('USER_DB')
     DB_PASSWORD: str = getenv('PASSWORD_DB')
     DB_PORT: str = getenv('PORT_DB')
-    DB_NAME: str = getenv('NAME_DB')
+    DB_NAME: str = getenv('DB_NAME')
     API_V1_STR: str =  '/api/v1'
     DB_URL: str = f'postgresql+asyncpg://{DB_USER_NAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
     DB_BASE_MODEL =  declarative_base()

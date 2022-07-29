@@ -22,4 +22,4 @@ class Cliente(settings.DB_BASE_MODEL):
     nome: str = Column(String, nullable=False)
     contato: str = Column(String(50), unique=True)
     endereco: str = Column(String(100))
-    vendas:   List[Venda] = orm.relationship('Venda', secondary=vendas_clientes,  lazy='joined')
+    vendas:   Optional[List[Venda]] = orm.relationship('Venda', secondary=vendas_clientes,  lazy='joined')

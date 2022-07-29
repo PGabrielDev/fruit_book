@@ -1,5 +1,5 @@
 from typing import Optional, List
-from models.vendas import Venda
+from schemas.venda_schema import VendaSchema
 from pydantic import BaseModel as SCBaseModel
 
 class ClienteSchama(SCBaseModel):
@@ -7,4 +7,4 @@ class ClienteSchama(SCBaseModel):
     nome: str 
     contato: str
     endereco: str 
-    vendas: Optional[List[Venda]] 
+    vendas: Optional[List[VendaSchema]]

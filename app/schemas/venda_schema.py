@@ -8,9 +8,9 @@ class VendaSchema(SCBaseModel):
     titulo: str 
     descricao: str 
     valor: float  
-    data_venda: datetime 
-    data_pagamento: datetime
-    data_prevista_pagamento: datetime 
+    data_venda: Optional[datetime] 
+    data_pagamento: Optional[datetime]
+    data_prevista_pagamento: Optional[datetime] 
 
     class Config:
         orm_mode = True

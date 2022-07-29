@@ -35,4 +35,15 @@ async def get_vendas(db: AsyncSession = Depends(get_session)):
         resultado =  await session.execute(query)
         vendas = resultado.scalars().all()
         return vendas
-    
+
+@router.get('/{id}', response_model=VendaSchema)
+async def get_venda(id:int, db: AsyncSession = Depends(get_session)):
+    async with db as session:
+        query = session(Venda).filter(Venda.id == id)
+        resultado = await session.execute(query)
+        venda = resultado.scalar_one_or_none()
+
+        if venda:
+            return venda
+        else:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Venda nao encontrada !")
